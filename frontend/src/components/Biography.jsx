@@ -1,36 +1,38 @@
 import React from "react";
 
-const Biography = ({imageUrl}) => {
+const Biography = ({ imageUrl }) => {
   return (
     <>
       <div className="container biography">
         <div className="banner">
-          <img src={imageUrl} alt="whoweare" />
+          <img src={imageUrl} alt="About ZeeCare" />
         </div>
         <div className="banner">
           <p>Biography</p>
           <h3>Who We Are</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            blanditiis sequi aperiam. Debitis fugiat harum ex maxime illo
-            consequatur mollitia voluptatem omnis nihil nesciunt beatae esse
-            ipsam, sapiente totam aspernatur porro ducimus aperiam nisi. Ex
-            magnam voluptatum consectetur reprehenderit fugiat recusandae aut
-            similique illum natus velit, praesentium nostrum nesciunt. Deleniti,
-            nesciunt laboriosam totam iusto!
+            ZeeCare Medical Institute is a state-of-the-art facility dedicated
+            to providing comprehensive healthcare services with compassion and
+            expertise. Our team of skilled professionals is committed to
+            delivering personalized care tailored to each patient's needs.
           </p>
-          <p>We are all in 2024!</p>
-          <p>We are working on a MERN STACK PROJECT.</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            assumenda exercitationem accusamus sit repellendus quo optio dolorum
-            corporis corrupti. Quas similique vel minima veniam tenetur
-            obcaecati atque magni suscipit laboriosam! Veniam vitae minus nihil
-            cupiditate natus provident. Ex illum quasi pariatur odit nisi
-            voluptas illo qui ipsum mollitia. Libero, assumenda?
+            At ZeeCare, we prioritize your well-being, ensuring a harmonious
+            journey towards optimal health and wellness. We combine advanced
+            medical technology with a human touch to create a healing
+            environment that supports recovery and long-term health.
           </p>
-          <p>Lorem ipsum dolor sit amet!</p>
-          <p>Coding is fun!</p>
+          <p>
+            Our mission is to redefine patient care through innovation,
+            integrity, and excellence. From preventive screenings to specialized
+            treatments, we strive to meet the highest standards in every aspect
+            of healthcare delivery.
+          </p>
+          <p>
+            Whether you're visiting for a routine checkup or ongoing treatment,
+            ZeeCare is here to support you with empathy, professionalism, and
+            commitment.
+          </p>
         </div>
       </div>
     </>

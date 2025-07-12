@@ -58,8 +58,7 @@ const Register = () => {
         <h2>Sign Up</h2>
         <p>Please Sign Up To Continue</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat culpa
-          voluptas expedita itaque ex, totam ad quod error?
+          Create your account to get started with our healthcare system. Manage appointments, view medical records, and stay connected with your doctors—all in one place.
         </p>
         <form onSubmit={handleRegistration}>
           <div>

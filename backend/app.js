@@ -1,6 +1,14 @@
+import { config } from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+config({ path: path.join(__dirname, "config.env") });
+
 import express from "express";
 import { dbConnection } from "./database/dbConnection.js";
-import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import fileUpload from "express-fileupload";
@@ -10,7 +18,8 @@ import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 
 const app = express();
-config({ path: "./config.env" });
+
+console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 app.use(
   cors({
