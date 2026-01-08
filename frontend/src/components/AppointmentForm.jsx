@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import API_BASE_URL from "../utils/api";
 
 const AppointmentForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -31,10 +31,11 @@ const AppointmentForm = () => {
   ];
 
   const [doctors, setDoctors] = useState([]);
+
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
+        `${API_BASE_URL}/api/v1/user/doctors`,
         { withCredentials: true }
       );
       setDoctors(data.doctors);
@@ -42,12 +43,13 @@ const AppointmentForm = () => {
     };
     fetchDoctors();
   }, []);
+
   const handleAppointment = async (e) => {
     e.preventDefault();
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        `${API_BASE_URL}/api/v1/appointment/post`,
         {
           firstName,
           lastName,
@@ -69,19 +71,19 @@ const AppointmentForm = () => {
         }
       );
       toast.success(data.message);
-      setFirstName(""),
-        setLastName(""),
-        setEmail(""),
-        setPhone(""),
-        setNic(""),
-        setDob(""),
-        setGender(""),
-        setAppointmentDate(""),
-        setDepartment(""),
-        setDoctorFirstName(""),
-        setDoctorLastName(""),
-        setHasVisited(""),
-        setAddress("");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setNic("");
+      setDob("");
+      setGender("");
+      setAppointmentDate("");
+      setDepartment("");
+      setDoctorFirstName("");
+      setDoctorLastName("");
+      setHasVisited("");
+      setAddress("");
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -156,13 +158,11 @@ const AppointmentForm = () => {
                 setDoctorLastName("");
               }}
             >
-              {departmentsArray.map((depart, index) => {
-                return (
-                  <option value={depart} key={index}>
-                    {depart}
-                  </option>
-                );
-              })}
+              {departmentsArray.map((depart, index) => (
+                <option value={depart} key={index}>
+                  {depart}
+                </option>
+              ))}
             </select>
             <select
               value={`${doctorFirstName} ${doctorLastName}`}

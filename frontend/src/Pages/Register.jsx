@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import API_BASE_URL from "../utils/api";
 
 const Register = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -23,7 +24,7 @@ const Register = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/patient/register",
+          `${API_BASE_URL}/api/v1/user/patient/register`,
           { firstName, lastName, email, phone, nic, dob, gender, password },
           {
             withCredentials: true,
@@ -58,7 +59,9 @@ const Register = () => {
         <h2>Sign Up</h2>
         <p>Please Sign Up To Continue</p>
         <p>
-          Create your account to get started with our healthcare system. Manage appointments, view medical records, and stay connected with your doctors—all in one place.
+          Create your account to get started with our healthcare system. Manage
+          appointments, view medical records, and stay connected with your
+          doctors—all in one place.
         </p>
         <form onSubmit={handleRegistration}>
           <div>
