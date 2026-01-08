@@ -15,17 +15,14 @@ import Login from "./Pages/Login";
 import API_BASE_URL from "./utils/api";
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } =
-    useContext(Context);
+  const { setIsAuthenticated, setUser } = useContext(Context);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
           `${API_BASE_URL}/api/v1/user/patient/me`,
-          {
-            withCredentials: true,
-          }
+          { withCredentials: true }
         );
         setIsAuthenticated(true);
         setUser(response.data.user);
@@ -34,8 +31,9 @@ const App = () => {
         setUser({});
       }
     };
+
     fetchUser();
-  }, [isAuthenticated]);
+  }, []); // ✅ FIXED: run once on app load
 
   return (
     <>
