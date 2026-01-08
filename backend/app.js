@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Load env
 config({ path: path.join(__dirname, "config.env") });
 
 import express from "express";
@@ -19,12 +20,14 @@ import appointmentRouter from "./router/appointmentRouter.js";
 
 const app = express();
 
-console.log("JWT_SECRET:", process.env.JWT_SECRET);
-
+// 🔐 CORS (FINAL & CORRECT)
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO],
-    method: ["GET", "POST", "DELETE", "PUT"],
+    origin: [
+      process.env.FRONTEND_URL_ONE, // frontend
+      process.env.FRONTEND_URL_TWO, // dashboard
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
@@ -39,11 +42,16 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+
+// Routes
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
 
+// DB
 dbConnection();
 
+// Error handler
 app.use(errorMiddleware);
+
 export default app;
