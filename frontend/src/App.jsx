@@ -1,17 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import AboutUs from "./Pages/AboutUs";
 import Register from "./Pages/Register";
-import Footer from "./components/Footer";
+import Login from "./Pages/Login";
+
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import axios from "axios";
 import { Context } from "./main";
-import Login from "./Pages/Login";
 import API_BASE_URL from "./utils/api";
 
 const App = () => {
@@ -24,32 +28,38 @@ const App = () => {
           `${API_BASE_URL}/api/v1/user/patient/me`,
           { withCredentials: true }
         );
+
         setIsAuthenticated(true);
         setUser(response.data.user);
       } catch (error) {
+        // 401 is EXPECTED when user is not logged in
         setIsAuthenticated(false);
         setUser({});
       }
     };
 
-    fetchUser();
-  }, []); // ✅ FIXED: run once on app load
+    // ✅ Only check auth if cookie might exist
+    if (document.cookie.includes("token")) {
+      fetchUser();
+    }
+  }, [setIsAuthenticated, setUser]);
 
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/appointment" element={<Appointment />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <Footer />
-        <ToastContainer position="top-center" />
-      </Router>
-    </>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+      <Footer />
+
+      <ToastContainer position="top-center" />
+    </Router>
   );
 };
 
