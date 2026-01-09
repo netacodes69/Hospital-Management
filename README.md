@@ -45,20 +45,20 @@ A full-stack **Hospital Management System** designed to streamline hospital work
 
 
 ### 🏥 Departments Section
+<img width="1875" height="710" alt="Screenshot 2026-01-09 145057" src="https://github.com/user-attachments/assets/bea4b9b0-7ce0-4cdc-bd8d-aa4f457a9421" />
 
-![Departments](./Screenshot%202026-01-09%20145057.png)
 
 ### 📝 Sign Up Page
+<img width="1875" height="901" alt="Screenshot 2026-01-09 145139" src="https://github.com/user-attachments/assets/dd46beda-f914-4cd3-886e-fd889e494e4b" />
 
-![Sign Up](./Screenshot%202026-01-09%20145139.png)
 
 ### 🔐 Login Page
+<img width="1865" height="883" alt="Screenshot 2026-01-09 145123" src="https://github.com/user-attachments/assets/cf93d299-2e91-483a-bc53-128ec794023d" />
 
-![Login](./Screenshot%202026-01-09%20145123.png)
 
 ### 📅 Appointment Booking
+<img width="1870" height="892" alt="Screenshot 2026-01-09 145113" src="https://github.com/user-attachments/assets/236ae19b-7a0f-4b27-9c8b-3081c33e8d7d" />
 
-![Appointment](./Screenshot%202026-01-09%20145113.png)
 
 ---
 
