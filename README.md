@@ -41,8 +41,8 @@ A full-stack **Hospital Management System** designed to streamline hospital work
 ## 📸 Screenshots
 
 ### 🏠 Home Page
+<img width="1868" height="891" alt="Screenshot 2026-01-09 145040" src="https://github.com/user-attachments/assets/af7480fb-f9c2-41f3-beea-8e7ce37ff49c" />
 
-![Home Page](./Screenshot%202026-01-09%20145040.png)
 
 ### 🏥 Departments Section
 
